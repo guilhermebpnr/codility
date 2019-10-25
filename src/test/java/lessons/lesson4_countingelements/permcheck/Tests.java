@@ -1,12 +1,17 @@
 package lessons.lesson4_countingelements.permcheck;
 
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.*;
 
 public class Tests {
+
+    @Rule
+    public final ExpectedException exception = ExpectedException.none();
 
     private static final long TIMEOUT_LIMIT = 6000;
 
@@ -27,25 +32,27 @@ public class Tests {
     }
 
     @Test
-    public void shouldReturnZeroIfArrayIsEmptyTest() {
+    public void shouldRaiseExceptionIfArrayIsEmptyTest() {
         int[] input = {};
         int expected = 0;
+        exception.expect(IllegalArgumentException.class);
+        resultAndPerformanceTest(input,expected);
+    }
+
+    @Test
+    public void shouldRaiseExceptionIfArrayLengthGreaterThan100000Test() {
+        int[] input = new int[100001];
+        for (int i = 0; i < input.length; i++) {
+            input[i] = i+1;
+        }
+        int expected = 0;
+        exception.expect(IllegalArgumentException.class);
         resultAndPerformanceTest(input,expected);
     }
 
     @Test
     public void shouldReturnZeroIfMinElementDifferentThanOneTest() {
         int[] input = {2,4,3,5};
-        int expected = 0;
-        resultAndPerformanceTest(input,expected);
-    }
-
-    @Test
-    public void shouldReturnZeroIfArrayLengthGreaterThan100000Test() {
-        int[] input = new int[100001];
-        for (int i = 0; i < input.length; i++) {
-            input[i] = i+1;
-        }
         int expected = 0;
         resultAndPerformanceTest(input,expected);
     }

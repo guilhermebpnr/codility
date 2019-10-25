@@ -59,7 +59,8 @@ public class Solution {
     public static final int MIN_LENGTH = 1;
 
     public int solution(int[] A) {
-        if (hasArrayCorrectLengthAndIsEveryElementWithinRange(A)
+        if (isEveryAssumptionMet(A)
+                && hasArrayCorrectLength(A)
                 && isEachElementPresentOnceAndOnlyOnce(A)
         ) {
             return 1;
@@ -67,19 +68,24 @@ public class Solution {
         return 0;
     }
 
-    private boolean hasArrayCorrectLengthAndIsEveryElementWithinRange(int[] A) {
-
-        if (A.length < MIN_LENGTH
-                || A.length > MAX_LENGTH
-        ) {
-            return false;
+    private boolean isEveryAssumptionMet(int[] A) throws IllegalArgumentException {
+        if (A.length < MIN_LENGTH) {
+            throw new IllegalArgumentException("Array is too short: " + A.length);
         }
-
-        int maxElement = 0;
-
+        if (A.length > MAX_LENGTH) {
+            throw new IllegalArgumentException("Array is too long: " + A.length);
+        }
         for (int i = 0; i < A.length; i++) {
-            if (!isElementWithinRange(A[i]))
-                return false;
+            if (!isElementWithinRange(A[i])) {
+                throw new IllegalArgumentException("Element of array outside the range [1..1,000,000,000]: " + A[i]);
+            }
+        }
+        return true;
+    }
+
+    private boolean hasArrayCorrectLength(int[] A) {
+        int maxElement = 0;
+        for (int i = 0; i < A.length; i++) {
             if (A[i] > maxElement)
                 maxElement = A[i];
         }
@@ -110,6 +116,7 @@ public class Solution {
 
     private void countElements(int[] A, int[] countArray) {
         initializeArrayWithZeroes(countArray);
+        assert hasArrayCorrectLength(A) : "Input array has the wrong length.";
         for (int i = 0; i < A.length; i++) {
             countArray[A[i] - 1] += 1;
         }
