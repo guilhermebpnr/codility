@@ -1,4 +1,4 @@
-package lessons.lesson5_prefixsums.passingcars;
+package dev.guilhermebpnr.codility.lessons.lesson5_prefixsums.passingcars;
 
 /**
  * PassingCars

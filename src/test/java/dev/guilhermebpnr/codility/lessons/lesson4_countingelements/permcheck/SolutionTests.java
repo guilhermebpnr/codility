@@ -1,4 +1,4 @@
-package lessons.lesson4_countingelements.permcheck;
+package dev.guilhermebpnr.codility.lessons.lesson4_countingelements.permcheck;
 
 import org.junit.Assert;
 import org.junit.Rule;
@@ -8,7 +8,7 @@ import org.junit.rules.ExpectedException;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.*;
 
-public class Tests {
+public class SolutionTests {
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();

@@ -1,4 +1,4 @@
-package lessons.lesson4_countingelements.missinginteger;
+package dev.guilhermebpnr.codility.lessons.lesson4_countingelements.missinginteger;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,7 +8,7 @@ import java.util.Random;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.*;
 
-public class Tests {
+public class SolutionTests {
 
     public static final long TIMEOUT_LIMIT = 6000L;
     private Solution testSolution = new Solution();

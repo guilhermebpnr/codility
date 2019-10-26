@@ -1,4 +1,4 @@
-package lessons.lesson5_prefixsums.passingcars;
+package dev.guilhermebpnr.codility.lessons.lesson5_prefixsums.passingcars;
 
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -10,7 +10,7 @@ import utils.Utils;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.equalTo;
 
-public class Tests {
+public class SolutionTests {
 
     private static final long TIMEOUT = 6000;
 

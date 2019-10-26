@@ -1,4 +1,4 @@
-package lessons.lesson4_countingelements.permcheck;
+package dev.guilhermebpnr.codility.lessons.lesson4_countingelements.permcheck;
 
 /**
  * PermCheck
